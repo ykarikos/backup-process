@@ -1,11 +1,24 @@
+# Find non-ascii directories and filenames. 
+# First directories, then filenames.
+# Use both latin and utf-8 terminals.
+# alias xterm-latin='LC_ALL=fi_FI.ISO-8859-1 xterm +u8'
+
+# directories
+
 $ find -type d |grep "[^][()/@.,:;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0-9 \!?\+%&{}\$#~='_-]"
 $ find -type d -print0 |xargs -0 rename 's/ö/o/g'
 $ find -type d -print0 |xargs -0 rename 's/ä/a/g'
 
+# files
+
 $ find -type f |grep "[^][()/@.,:;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0-9 \!?\+%&{}\$#~='_-]"
 $ find -type f -print0|xargs -0 rename 's/ä/a/g'
 $ find -type f -print0|xargs -0 rename 's/ö/o/g'
-$ find -type f -print0|xargs -0 rename 's/[èéê]/e/g'
+$ find -type f -print0|xargs -0 rename 's/[èéêë]/e/g'
 $ find -type f -print0|xargs -0 rename 's/[áà]/a/g'
 $ find -type f -print0|xargs -0 rename 's/[ò]/o/g'
 $ find -type f -print0|xargs -0 rename 's/[ï]/i/g'
+$ find -type f -print0|xargs -0 rename 's/ü/ue/g'
+$ find -type f -print0|xargs -0 rename 's/É/E/g'
+$ find -type f -print0|xargs -0 rename 's/ã/a/g'
+$ find -type f -print0|xargs -0 rename 's/ñ/n/g'
