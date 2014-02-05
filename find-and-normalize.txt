@@ -1,0 +1,11 @@
+$ find -type d |grep "[^][()/@.,:;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0-9 \!?\+%&{}\$#~='_-]"
+$ find -type d -print0 |xargs -0 rename 's/ö/o/g'
+$ find -type d -print0 |xargs -0 rename 's/ä/a/g'
+
+$ find -type f |grep "[^][()/@.,:;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0-9 \!?\+%&{}\$#~='_-]"
+$ find -type f -print0|xargs -0 rename 's/ä/a/g'
+$ find -type f -print0|xargs -0 rename 's/ö/o/g'
+$ find -type f -print0|xargs -0 rename 's/[èéê]/e/g'
+$ find -type f -print0|xargs -0 rename 's/[áà]/a/g'
+$ find -type f -print0|xargs -0 rename 's/[ò]/o/g'
+$ find -type f -print0|xargs -0 rename 's/[ï]/i/g'
